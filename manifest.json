@@ -1,0 +1,16 @@
+{
+  "slug": "arena-estelar",
+  "title": "Arena Estelar",
+  "author": "João Victor de Assis Cunha",
+  "authorClass": "9º C",
+  "discipline": "Matemática",
+  "grades": ["6º ano", "7º ano", "8º ano", "9º ano"],
+  "tags": ["matemática", "adição", "multiplicação", "sobrevivência", "espaço"],
+  "description": "Sobreviva a 10 rodadas na Arena Estelar mirando e clicando no alvo com o resultado correto das operações matemáticas antes que a zona segura feche.",
+  "instructions": "Leia a conta exibida no visor espacial, mire e clique no alvo com a resposta certa. Um erro ou o fim do tempo elimina você da partida.",
+  "duration": "2-4 min",
+  "version": "1.0.0",
+  "entry": "index.html",
+  "cover": "cover.svg",
+  "createdAt": "2026-11-24"
+}

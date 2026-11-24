@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arena Estelar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container-jogo" id="container-jogo">
+    <!-- Cabeçalho com status da partida -->
+    <header class="cabecalho">
+      <div class="info-titulo">
+        <span class="badge-espacial">SETOR DE TREINO</span>
+        <h1>Arena Estelar</h1>
+      </div>
+      <div class="controles-topo">
+        <button id="btn-tema" class="btn-icone" aria-label="Alternar tema claro ou escuro" title="Mudar Tema">
+          🌓
+        </button>
+        <button id="btn-tela-cheia" class="btn-icone" aria-label="Tela cheia" title="Tela Cheia">
+          ⛶
+        </button>
+      </div>
+    </header>
+
+    <!-- Barra de progresso e informações da rodada -->
+    <section class="painel-status" aria-live="polite">
+      <div class="status-item">
+        <span class="rotulo">Rodada</span>
+        <strong id="texto-rodada">1 / 10</strong>
+      </div>
+      <div class="status-item">
+        <span class="rotulo">Sobreviventes</span>
+        <strong id="texto-sobreviventes">100</strong>
+      </div>
+      <div class="status-item">
+        <span class="rotulo">Pontuação</span>
+        <strong id="texto-pontos">0</strong>
+      </div>
+    </section>
+
+    <!-- Barra de tempo da zona segura -->
+    <div class="barra-tempo-fundo" role="progressbar" aria-label="Tempo restante da rodada">
+      <div id="barra-tempo-progresso" class="barra-tempo-progresso"></div>
+    </div>
+
+    <!-- Tela Inicial -->
+    <section id="tela-inicio" class="tela ativa">
+      <div class="cartao-central">
+        <div class="icone-grande">🚀</div>
+        <h2>Sobrevivência Cósmica</h2>
+        <p>Você caiu na <strong>Arena Estelar</strong>! Para sobreviver às 10 rodadas e ser o último piloto de pé, mire e clique no alvo com o resultado certo da conta antes que a zona segura feche.</p>
+        <div class="aviso-regra">
+          <strong>Atenção:</strong> Eliminação direta! Um erro ou tempo esgotado tira você da partida.
+        </div>
+        <button id="btn-iniciar" class="btn-principal">Entrar na Arena</button>
+      </div>
+    </section>
+
+    <!-- Tela da Arena (Jogo Ativo) -->
+    <section id="tela-arena" class="tela">
+      <div class="visor-conta">
+        <span class="instrucao-mira">Mire no resultado de:</span>
+        <div id="texto-conta" class="conta-matematica">2 + 3</div>
+      </div>
+
+      <!-- Campo onde os alvos aparecem -->
+      <div id="campo-alvos" class="campo-alvos" aria-label="Alvos espaciais">
+        <!-- Os alvos serão criados pelo JavaScript -->
+      </div>
+    </section>
+
+    <!-- Tela de Feedback Rápido (Acerto entre rodadas) -->
+    <section id="tela-feedback" class="tela">
+      <div class="cartao-central">
+        <div id="icone-feedback" class="icone-grande">🎯</div>
+        <h2 id="titulo-feedback">Alvo Destruído!</h2>
+        <p id="explicacao-feedback" class="texto-explicacao">Explicação da conta aqui.</p>
+        <button id="btn-proxima-rodada" class="btn-principal">Próxima Rodada</button>
+      </div>
+    </section>
+
+    <!-- Tela Final (Vitória ou Eliminação) -->
+    <section id="tela-fim" class="tela">
+      <div class="cartao-central">
+        <div id="icone-fim" class="icone-grande">🏆</div>
+        <h2 id="titulo-fim">Campeão da Arena!</h2>
+        <p id="mensagem-fim" class="texto-explicacao">Você sobreviveu a todas as rodadas.</p>
+        
+        <div class="resumo-final">
+          <div class="resumo-dado">
+            <span>Pontuação Final</span>
+            <strong id="final-pontos">0</strong>
+          </div>
+          <div class="resumo-dado">
+            <span>Rodadas Vencidas</span>
+            <strong id="final-rodadas">0 / 10</strong>
+          </div>
+        </div>
+
+        <button id="btn-reiniciar" class="btn-principal">Jogar Novamente</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>

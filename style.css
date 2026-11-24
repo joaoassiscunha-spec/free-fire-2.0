@@ -1,0 +1,349 @@
+/* Variáveis de Tema (Escuro como padrão espacial e Claro como alternativa) */
+:root {
+  --cor-fundo: #0b0f19;
+  --cor-cartao: #151c2f;
+  --cor-borda: #2a3655;
+  --cor-texto: #f1f5f9;
+  --cor-texto-suave: #94a3b8;
+  --cor-primaria: #38bdf8;
+  --cor-primaria-hover: #0284c7;
+  --cor-destaque: #f59e0b;
+  --cor-sucesso: #22c55e;
+  --cor-erro: #ef4444;
+  --cor-alvo-fundo: #1e293b;
+  --sombra-cartao: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] {
+  --cor-fundo: #e2e8f0;
+  --cor-cartao: #ffffff;
+  --cor-borda: #cbd5e1;
+  --cor-texto: #0f172a;
+  --cor-texto-suave: #475569;
+  --cor-primaria: #0284c7;
+  --cor-primaria-hover: #0369a1;
+  --cor-destaque: #d97706;
+  --cor-sucesso: #16a34a;
+  --cor-erro: #dc2626;
+  --cor-alvo-fundo: #f8fafc;
+  --sombra-cartao: 0 8px 20px rgba(15, 23, 42, 0.1);
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  /* Fundo estrelado sutil com CSS puro */
+  background-image: radial-gradient(var(--cor-borda) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.container-jogo {
+  width: 100%;
+  max-width: 680px;
+  background-color: var(--cor-cartao);
+  border: 2px solid var(--cor-borda);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--sombra-cartao);
+}
+
+/* Cabeçalho */
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.badge-espacial {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--cor-primaria);
+  text-transform: uppercase;
+}
+
+.cabecalho h1 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.controles-topo {
+  display: flex;
+  gap: 8px;
+}
+
+/* Botões com tamanho mínimo acessível de 44px */
+.btn-icone {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 10px;
+  border: 2px solid var(--cor-borda);
+  background-color: var(--cor-alvo-fundo);
+  color: var(--cor-texto);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-icone:hover, .btn-icone:focus-visible {
+  border-color: var(--cor-primaria);
+  outline: none;
+}
+
+.btn-principal {
+  min-height: 48px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--cor-primaria);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-principal:hover, .btn-principal:focus-visible {
+  background-color: var(--cor-primaria-hover);
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 2px;
+}
+
+.btn-principal:active {
+  transform: scale(0.98);
+}
+
+/* Painel de Status */
+.painel-status {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background-color: var(--cor-fundo);
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--cor-borda);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.status-item .rotulo {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--cor-texto-suave);
+  text-transform: uppercase;
+}
+
+.status-item strong {
+  font-size: 1.15rem;
+  color: var(--cor-primaria);
+}
+
+/* Barra de Tempo */
+.barra-tempo-fundo {
+  width: 100%;
+  height: 10px;
+  background-color: var(--cor-fundo);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid var(--cor-borda);
+}
+
+.barra-tempo-progresso {
+  width: 100%;
+  height: 100%;
+  background-color: var(--cor-sucesso);
+  transition: width 0.1s linear, background-color 0.3s ease;
+}
+
+/* Controle de Telas */
+.tela {
+  display: none;
+}
+
+.tela.ativa {
+  display: block;
+}
+
+.cartao-central {
+  text-align: center;
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.icone-grande {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.cartao-central p {
+  color: var(--cor-texto-suave);
+  max-width: 480px;
+}
+
+.aviso-regra {
+  background-color: rgba(239, 68, 68, 0.12);
+  border: 1px solid var(--cor-erro);
+  color: var(--cor-texto);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+/* Visor da Conta na Arena */
+.visor-conta {
+  text-align: center;
+  background-color: var(--cor-fundo);
+  border: 2px solid var(--cor-primaria);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 18px;
+}
+
+.instrucao-mira {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+  margin-bottom: 4px;
+}
+
+.conta-matematica {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--cor-destaque);
+}
+
+/* Campo de Alvos (Mira e Clique) */
+.campo-alvos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  min-height: 220px;
+  padding: 8px;
+}
+
+.alvo-espacial {
+  min-height: 96px;
+  min-width: 44px;
+  border-radius: 16px;
+  border: 3px solid var(--cor-borda);
+  background-color: var(--cor-alvo-fundo);
+  color: var(--cor-texto);
+  font-size: 1.6rem;
+  font-weight: 800;
+  cursor: crosshair;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.alvo-espacial::before {
+  content: "🎯 ALVO";
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--cor-primaria);
+}
+
+.alvo-espacial:hover, .alvo-espacial:focus-visible {
+  border-color: var(--cor-destaque);
+  transform: scale(1.03);
+  outline: none;
+}
+
+/* Animação suave de flutuação nos alvos */
+@keyframes flutuarAlvo {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.alvo-espacial {
+  animation: flutuarAlvo 2.5s ease-in-out infinite;
+}
+
+.alvo-espacial:nth-child(2) { animation-delay: 0.4s; }
+.alvo-espacial:nth-child(3) { animation-delay: 0.8s; }
+.alvo-espacial:nth-child(4) { animation-delay: 1.2s; }
+
+/* Respeita preferência por menos animação */
+@media (prefers-reduced-motion: reduce) {
+  .alvo-espacial {
+    animation: none;
+  }
+  .btn-icone, .btn-principal, .barra-tempo-progresso, .alvo-espacial {
+    transition: none;
+  }
+}
+
+/* Explicação e Resumo Final */
+.texto-explicacao {
+  font-size: 1.05rem;
+  color: var(--cor-texto) !important;
+  background-color: var(--cor-fundo);
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid var(--cor-borda);
+}
+
+.resumo-final {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.resumo-dado {
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.resumo-dado span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
+
+.resumo-dado strong {
+  font-size: 1.4rem;
+  color: var(--cor-primaria);
+}
+
+@media (max-width: 480px) {
+  .conta-matematica {
+    font-size: 1.6rem;
+  }
+  .alvo-espacial {
+    min-height: 84px;
+    font-size: 1.4rem;
+  }
+}
